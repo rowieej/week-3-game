@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>90's Top Hits - Hangman</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+
+</head>
+
+<body>
+		<div class="row">
+		  <div class="col-md-9 col-md-push-3"><h1>90's Top Hit Artists Hangman!</h1></div>
+		  <div class="col-md-9 col-md-push-3">.press any letter to start.</div>
+		</div>
+		<div class="display">
+			<ul>
+			  <li class="totalGuess">.total guesses.</li>
+			  <li class="guessesLeft">.total guesses left.</li>
+			  <li class="lettersChosen">.letters chosen.</li>
+			</ul>
+			<p id="guessThis"></p>
+		</div>
+	
+
+<script>
+//Create an array of words
+var artistBank = ["mariah carey" , "nirvana", "radiohead", "pearl jam", "tupac", "green day"];
+//computer will choose random word from array
+var hangmanWord = artistBank[Math.floor(Math.random() * artistBank.length)];
+//creat new array that just takes the letters from random word chosen
+var hangmanLetter = hangmanWord.split("");
+	console.log("hangmanWord = " + (hangmanWord));
+	console.log("hangman letter = " + (hangmanLetter));
+
+//Declares total amount of guesses and how many guesses left
+var totalGuess = 10;
+var guessesLeft = ("You have " + (totalGuess--) + "left");
+
+//Tell player to guess 
+
+alert("press a key to begin");
+document.onkeyup = function() {
+    var playerGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+//Display every letter as an underscore
+	for (var i=0; i < hangmanLetter.length; i++){
+		hangmanLetter[i] = "_";
+	document.write(hangmanLetter);
+		console.log(hangmanLetter);
+			if (playerGuess == hangmanLetter[i]){
+			}
+	}
+//Ask player to press any key to start.  This will grab their selected letter and change it to lower case.
+
+//alert(playerGuess);
+//Find out if playerGuess letter is one of the letters in hangmanWord. subtract from total guess left
+		function isLetterInWord(letter){
+			 for (var i=0; i < word.length; i++){
+			 		if (playerGuess = hangmanLetter[i]){
+			 				console.log("you got one!");
+
+			 			}
+			 }
+		}
+}
+
+
+		
+
+
+			
+
+
+
+   //Create an array to check to see if playerGuess letter is one of the letters in hangmanWord.
+		  // for (var i = 0; i < hangmanWord; i++) {
+		      // if the selected letter matches one in the word to guess,  replace the underscore and increase the number of correct guesses
+		    //  if (hangmanWord.charAt(i) == letter.toLowerCase()){
+		      //   correctGuesses++;
+
+	
+		            
+		         
+		      
+	
+   // if the guess was incorrect, increment the number of bad guesses
+   
+      
+   
+   // convert the array to a string and display it again
+   
+//Array of answers
+			//var artists = ["mariah carey" , "nirvana", "radiohead", "pearl jam" , "tupac" , "green day"];
+			
+//Computer picks a random word from "artists"
+			//var word = artists[Math.floor(Math.random() * artists.length)];
+			
+			//var answerArray = []
+				//for [var i = 0; i < word.length; i++]{
+					//answerArray[] = "_";
+				//}
+			//var remainingLetters = word.length;
+
+				//	while (remainingLetters > 0){
+					//	answerArray.join(" ");
+
+						//Where the player guesses.
+						//var playerGuess = [String.fromCharCode(event.keyCode).toLowerCase()];
+							//document.write("Time to guess.  Pick a Letter")
+
+							//for (var x = 0; x < word.length; x++){
+
+								//if (word[x] == playerGuess){
+									//answer[x] = playerGuess;
+									//remainingLetters--;
+								//}
+							//}
+							//}
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Psychic Game</title>
+</head>
+<body>
+	<head>
+		<h1>The Psychic Game</h1>
+	</head>
+
+	<div id="wins">Wins:</div>
+	<div id="losses">Loss:</div>
+	<div id="guessLeft">Guesses Left:</div>
+	<div id="guessessSoFar">What you've guessed so far:</div>
+
+
+		<script>
+			//create an array of all the letters the computer/player can pick from
+			var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+			var computerGuess = "";
+			var lettersGuessed = [];
+			var winsCounter = 0;
+			var lossesCounter = 0;
+			var guessLeftCounter = 10;
+
+					document.getElementById('wins').innerHTML = ("Wins: " + winsCounter);
+					document.getElementById('guessLeft').innerHTML = ("Guesses Left: " +guessLeftCounter);
+					document.getElementById('guessessSoFar').innerHTML = ("Letters already guessed: " + lettersGuessed);
+					document.getElementById('losses').innerHTML = ("Losses: " + lossesCounter);
+			
+				document.onkeyup = function() {
+
+					var computerChoice = letters[Math.floor(Math.random()*letters.length)];
+					var playerGuess = [String.fromCharCode(event.keyCode).toLowerCase()];
+							console.log(computerChoice);
+					
+				//When player still have guesses left, we need to show what letters have already been guessed.
+
+							if(playerGuess == computerChoice){
+							winsCounter++;
+							guessLeftCounter = 10;
+							//console.log("Wins:" + winsCounter);
+							}
+
+							if(playerGuess != computerChoice && guessLeftCounter != 0){
+							guessLeftCounter--;
+							 	for (i=0; i < playerGuess.length; i++){
+							 		lettersGuessed = (lettersGuessed + playerGuess[i] + ' , ');
+							 	}
+
+							if(guessLeftCounter == 0){
+									lettersGuessed = [];
+							}
+							
+							
+							 
+//					  ("Letters Guessed: " + lettersGuessed.toString()"," );
+							//print player guess in "guesses so far"
+							//console.log("guesses left:" + guessLeftCounter);
+							}
+
+							if(guessLeftCounter == 0){
+							guessLeftCounter = 10;
+							lossesCounter++;
+							//Then clear lettersGuessed
+							//console.log("losses:"+ lossesCounter);
+							}
+
+							document.getElementById('wins').innerHTML = ("Wins: " + winsCounter);
+							document.getElementById('guessLeft').innerHTML = ("Guesses Left: " +guessLeftCounter);
+							document.getElementById('guessessSoFar').innerHTML = ("Letters already guessed: " + lettersGuessed);
+							document.getElementById('losses').innerHTML = ("Losses: " + lossesCounter);
+	
+				}
+				
+
+		</script>
+</body>
+</html>
